@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:replace="~{/include/title.html::title}"></title>
+<link rel="stylesheet" th:href="@{/css/common.css}">
+<link rel="stylesheet" th:href="@{/css/header_nav_footer.css}">
+<link rel="stylesheet" th:href="@{/css/member.css}">
+
+<script th:src="@{/js/member.js}"></script>
+
+</head>
+<body>
+
+	<header th:replace="~{/include/header_nav_footer.html::header}"></header>
+	<nav th:replace="~{/include/header_nav_footer.html::nav}"></nav>
+	
+	<section>
+	<div id="section_wrap">
+		<div class="word">
+			SIGN-IN-FORM
+		</div>
+		
+		<div class="content">
+			<form th:action="@{/member/signin_confirm}" name="signin_form" method="post">
+			
+			<input type="text" name="id" placeholder="INPUT MEMEBER ID"><br>
+			<input type="password" name="pw" placeholder="INPUT MEMEBER PW"><br>
+			
+			<input type="button" value="sign-in" onclick="signinForm();">
+			<input type="reset" value="reset">
+			
+			</form>
+		</div>
+		
+	</div>
+	</section>
+	
+	<footer th:replace="~{/include/header_nav_footer.html::footer}"></footer>
+	
+
+</body>
+</html>
