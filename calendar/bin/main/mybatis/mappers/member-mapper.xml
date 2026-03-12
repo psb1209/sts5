@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.office.calendar.member.mapper.MemberMapper">
+
+	<cache />
+
+	<select id="isMember" 
+			resultType="Boolean" 
+			parameterType="String">
+		
+		SELECT 
+			COUNT(*) 
+		FROM 
+			user_member
+		WHERE 
+			id = #{id}
+		
+	</select>
+	
+	<insert id="insertMember" 
+			parameterType="MemberDto">
+		
+		INSERT INTO 
+			USER_MEMBER(id, pw, mail, phone) 
+		VALUES(#{id}, #{pw}, #{mail}, #{phone})
+	
+	</insert>
+	
+	<select id="selectMemberByID" 
+			resultType="MemberDto" 
+			parameterType="String">
+	
+		SELECT 
+			* 
+		FROM 
+			USER_MEMBER 
+		WHERE 
+			id = #{id}
+	
+	</select>
+
+</mapper>
